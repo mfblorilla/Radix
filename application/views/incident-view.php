@@ -163,31 +163,75 @@
 
 
 
-                    <div class="card bg-light mb-3" >
+<!--                    <div class="card bg-light mb-3" >
                         <div class="card-body">
                             <h4 class="card-title"><span class="fa fa-comment"></span> Incident Log</h4>
                             <hr>
                             <div class="scrollable-log">
                                 <div class="list-group">
 
-                                    <?php foreach ($incident_log as $row): ?>
+                                    <?php // foreach ($incident_log as $row): ?>
                                         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
 
                                             <div class="d-flex w-100 justify-content-between">
-                                                <span class="font-weight-bold"><?php echo nice_date($row->datetime, 'm/d/y , H:i:s'); ?></span>
-                                                <small class="text-muted"><span class="fa fa-clock-o"></span> <?php echo time_elapsed_string($row->datetime); ?></small>
+                                                <span class="font-weight-bold"><?php // echo nice_date($row->datetime, 'm/d/y , H:i:s'); ?></span>
+                                                <small class="text-muted"><span class="fa fa-clock-o"></span> <?php // echo time_elapsed_string($row->datetime); ?></small>
                                             </div>
 
-                                            <small><?php echo $row->content; ?></small>
+                                            <small><?php // echo $row->content; ?></small>
 
                                         </a>
-                                    <?php endforeach; ?>
+                                    <?php // endforeach; ?>
                                 </div>
 
                                 <ul>
 
                                 </ul>
                             </div>
+
+                        </div>
+                    </div>-->
+
+                    <div class="card bg-light mb-3" style="height: 15em;">
+                        <div class="card-body">
+                            <h4 class="card-title"><span class="fa fa-users"></span> People</h4>
+
+                            <table class="table table-hover table-sm table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td style="width:30%;"><span class="font-weight-bold">Created By</span></td>
+                                        <td><span ><?php echo $creator[0]->first_name . ' ' . $creator[0]->last_name; ?></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:30%;"><span class="font-weight-bold">Assigned To</span></td>
+                                        <td><span >
+                                                <?php
+                                                if ($assigned_user) {
+                                                    echo $assigned_username[0]->first_name . ' ' . $assigned_username[0]->last_name;
+                                                } else {
+                                                    echo 'Unknown';
+                                                }
+                                                ?>
+                                            </span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="font-weight-bold">Groups Involved</td>
+                                        <td><?php
+                                            for ($x = 0; $x <= count($groups_involved) - 1; $x++) {
+
+
+                                                if ($x == count($groups_involved) - 1) {
+                                                    echo $groups_involved[$x]->name;
+                                                } else {
+                                                    echo $groups_involved[$x]->name . ', ';
+                                                }
+                                            }
+                                            ?></td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
 
                         </div>
                     </div>
@@ -551,61 +595,6 @@
                                             </div>
 
                                             <div class="col">
-                                                <div class="card bg-light mb-3" style="height: 15em;">
-                                                    <div class="card-body">
-                                                        <h4 class="card-title"><span class="fa fa-users"></span> People</h4>
-
-                                                        <table class="table table-hover table-sm table-condensed">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td style="width:20%;"><span class="font-weight-bold">Created By</span></td>
-                                                                    <td><span ><?php echo $creator[0]->first_name . ' ' . $creator[0]->last_name; ?></span></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td style="width:20%;"><span class="font-weight-bold">Assigned To</span></td>
-                                                                    <td><span >
-                                                                            <?php
-                                                                            if ($assigned_user) {
-                                                                                echo $assigned_username[0]->first_name . ' ' . $assigned_username[0]->last_name;
-                                                                            } else {
-                                                                                echo 'Unknown';
-                                                                            }
-                                                                            ?>
-                                                                        </span></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><span class="font-weight-bold">Groups Involved</td>
-                                                                    <td><?php
-                                                                        for ($x = 0; $x <= count($groups_involved) - 1; $x++) {
-
-
-                                                                            if ($x == count($groups_involved) - 1) {
-                                                                                echo $groups_involved[$x]->name;
-                                                                            } else {
-                                                                                echo $groups_involved[$x]->name . ', ';
-                                                                            }
-                                                                        }
-                                                                        ?></td>
-                                                                </tr>
-
-
-                                                            </tbody>
-                                                        </table>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                        <div class="row">
-
-
-                                        </div>
-
-                                        <div class="row">
-
-                                            <div class="col">
                                                 <div class="card bg-light mb-3" style="height: 10em;">
                                                     <div class="card-body">
                                                         <h4 class="card-title"><span class="fa fa-braille"></span> Related Incidents</h4>
@@ -614,6 +603,25 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+
+                                        </div>
+                                        <div class="row">
+
+
+                                        </div>
+
+                                        <div class="row">
+
+<!--                                            <div class="col">
+                                                <div class="card bg-light mb-3" style="height: 10em;">
+                                                    <div class="card-body">
+                                                        <h4 class="card-title"><span class="fa fa-braille"></span> Related Incidents</h4>
+
+
+                                                    </div>
+                                                </div>
+                                            </div>-->
                                         </div>
                                     </div>
                                 </div>
@@ -854,77 +862,81 @@
                                         </div>
                                     </div>
 
-                              
 
 
-                                    <div class="container">
-
-
+                                    <div class="col-lg-12">
                                         <div class="row">
-                                            <div class="col-lg-7">
-                                                <h4>Incident Log</h4>
-                                                <ul class="timeline">
-                                                    <?php foreach ($incident_log as $log): ?>
+                                            <div class="card bg-light mb-3">
+
+                                                <div class="card-body">
+                                                    <h4><span class="fa fa-comment"></span> Incident Log</h4>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <ul class="timeline">
+                                                                <?php foreach ($incident_log as $log): ?>
 
 
-                                                        <?php
-                                                        $icon = "";
-                                                        $log_title = "";
-                                                        if (strpos($log->content, 'created')) {
+                                                                    <?php
+                                                                    $icon = "";
+                                                                    $log_title = "";
+                                                                    if (strpos($log->content, 'created')) {
 
-                                                            $log_title = "<span class='text-primary'><span class='fa fa-upload'></span> Creation</span>";
-                                                        } elseif (strpos($log->content, 'added artifacts') || strpos($log->content, 'added additonal artifact')) {
+                                                                        $log_title = "<span class='text-primary'><span class='fa fa-upload'></span> Creation</span>";
+                                                                    } elseif (strpos($log->content, 'added artifacts') || strpos($log->content, 'added additonal artifact')) {
 
-                                                            $log_title = "<span class='text-success'><span class='fa fa-plus-circle'></span> Added Artifacts </span>";
-                                                        } elseif (strpos($log->content, 'modified status')) {
+                                                                        $log_title = "<span class='text-success'><span class='fa fa-plus-circle'></span> Added Artifacts </span>";
+                                                                    } elseif (strpos($log->content, 'modified status')) {
 
-                                                            $log_title = "<span class='text-danger'><span class='fa fa-share-alt'></span> Modified Status</span>";
-                                                        } elseif (strpos($log->content, 'append')) {
+                                                                        $log_title = "<span class='text-danger'><span class='fa fa-share-alt'></span> Modified Status</span>";
+                                                                    } elseif (strpos($log->content, 'append')) {
 
-                                                            $log_title = "<span class='text-success'><span class='fa fa-plus-circle'></span> Appended Offense </span>";
-                                                        } elseif (strpos($log->content, 'modified severity')) {
+                                                                        $log_title = "<span class='text-success'><span class='fa fa-plus-circle'></span> Appended Offense </span>";
+                                                                    } elseif (strpos($log->content, 'modified severity')) {
 
-                                                            $log_title = "<span class='text-warning'><span class='fa fa-fire'></span> Modified Severity</span>";
-                                                        } elseif (strpos($log->content, 'modified verdict')) {
+                                                                        $log_title = "<span class='text-warning'><span class='fa fa-fire'></span> Modified Severity</span>";
+                                                                    } elseif (strpos($log->content, 'modified verdict')) {
 
-                                                            $log_title = "<span class='text-warning'><span class='fa fa-gavel'></span> Modified Verdict</span>";
-                                                        } elseif (strpos($log->content, 'assigned')) {
+                                                                        $log_title = "<span class='text-warning'><span class='fa fa-gavel'></span> Modified Verdict</span>";
+                                                                    } elseif (strpos($log->content, 'assigned')) {
 
-                                                            $log_title = "<span class='text-info'><span class='fa fa-user'></span> Assign </span>";
-                                                        }
-                                                         elseif (strpos($log->content, 'modified offense ID') || strpos($log->content, 'modified description')) {
+                                                                        $log_title = "<span class='text-info'><span class='fa fa-user'></span> Assign </span>";
+                                                                    } elseif (strpos($log->content, 'modified offense ID')) {
 
-                                                            $log_title = "<span class='text-success'> <span class='fa fa-edit'></span> Modified </span>";
-                                                        }
-                                                        ?>
+                                                                        $log_title = "<span class='text-success'> <span class='fa fa-edit'></span> Modified Offense ID</span>";
+                                                                    } elseif (strpos($log->content, 'modified description')) {
+                                                                        $log_title = "<span class='text-success'> <span class='fa fa-edit'></span> Modified Description</span>";
+                                                                    }
+                                                                    ?>
 
-                                                        <li>
-                                                            <a  href="#"><?php echo $log_title ?></a>
-                                                            <a href="#" class="float-right"><?php echo nice_date($log->datetime, 'm/d/y , H:i:s'); ?></a>
-                                                            
-                                                            <p>
-                                                                 <small class="text-muted"><span class="fa fa-clock-o"></span> <?php echo time_elapsed_string($log->datetime); ?></small><br/>
-                                                                <?php echo $log->content; ?></p>
-                                                        </li>
+                                                                    <li>
+                                                                        <hr>
+                                                                        <a  href="#"><?php echo $log_title ?></a>
+                                                                        <a href="#" class="float-right"><?php echo nice_date($log->datetime, 'm/d/y , H:i:s'); ?></a>
 
-
-
-                                                    <?php endforeach; ?>
+                                                                        <p>
+                                                                            <small class="text-muted"><span class="fa fa-clock-o"></span> <?php echo time_elapsed_string($log->datetime); ?></small><br/>
+                                                                            <?php echo $log->content; ?></p>
+                                                                    </li>
 
 
-                                                </ul>
+
+                                                                <?php endforeach; ?>
+
+
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+
+
+
+
+
+
+                                                </div>
+
                                             </div>
                                         </div>
-
-
-
-
-
-
-
-
                                     </div>
-
 
 
 
@@ -956,7 +968,7 @@
 
             </div>
 
-        <?php } //end of else                            ?>
+        <?php } //end of else                             ?>
     </div>
     <!--end of container fluid-->
 </div>
