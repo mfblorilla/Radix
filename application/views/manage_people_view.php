@@ -46,7 +46,7 @@
                            Groups
                         </div>
                     </div>
-                    <a href="#" class="card-footer text-white clearfix small z-1">
+                    <a href="<?php echo base_url('index.php/Users/manage_groups'); ?>" class="card-footer text-white clearfix small z-1">
                         <span class="float-left">Manage</span>
                         <span class="float-right">
                             <i class="fa fa-angle-right"></i>

@@ -263,4 +263,16 @@ class Users extends CI_Controller {
         $this->edit_user_view($this->input->post('user_id'), $rep);
     }
 
+    public function manage_groups() {
+        $data['title'] = "People Management";
+        $data['base_url'] = base_url();
+        $data['nav'] = uri_string();
+
+
+
+        $this->load->view('templates/header-nav', $data);
+        $this->load->view('manage_groups_view', $data);
+        $this->load->view('templates/footer-nav', $data);
+    }
+
 }
