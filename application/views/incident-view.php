@@ -163,34 +163,34 @@
 
 
 
-<!--                    <div class="card bg-light mb-3" >
-                        <div class="card-body">
-                            <h4 class="card-title"><span class="fa fa-comment"></span> Incident Log</h4>
-                            <hr>
-                            <div class="scrollable-log">
-                                <div class="list-group">
-
-                                    <?php // foreach ($incident_log as $row): ?>
-                                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-
-                                            <div class="d-flex w-100 justify-content-between">
-                                                <span class="font-weight-bold"><?php // echo nice_date($row->datetime, 'm/d/y , H:i:s'); ?></span>
-                                                <small class="text-muted"><span class="fa fa-clock-o"></span> <?php // echo time_elapsed_string($row->datetime); ?></small>
+                    <!--                    <div class="card bg-light mb-3" >
+                                            <div class="card-body">
+                                                <h4 class="card-title"><span class="fa fa-comment"></span> Incident Log</h4>
+                                                <hr>
+                                                <div class="scrollable-log">
+                                                    <div class="list-group">
+                    
+                    <?php // foreach ($incident_log as $row): ?>
+                                                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                    
+                                                                <div class="d-flex w-100 justify-content-between">
+                                                                    <span class="font-weight-bold"><?php // echo nice_date($row->datetime, 'm/d/y , H:i:s');  ?></span>
+                                                                    <small class="text-muted"><span class="fa fa-clock-o"></span> <?php // echo time_elapsed_string($row->datetime);  ?></small>
+                                                                </div>
+                    
+                                                                <small><?php // echo $row->content;  ?></small>
+                    
+                                                            </a>
+                    <?php // endforeach; ?>
+                                                    </div>
+                    
+                                                    <ul>
+                    
+                                                    </ul>
+                                                </div>
+                    
                                             </div>
-
-                                            <small><?php // echo $row->content; ?></small>
-
-                                        </a>
-                                    <?php // endforeach; ?>
-                                </div>
-
-                                <ul>
-
-                                </ul>
-                            </div>
-
-                        </div>
-                    </div>-->
+                                        </div>-->
 
                     <div class="card bg-light mb-3" style="height: 15em;">
                         <div class="card-body">
@@ -536,7 +536,7 @@
                                 </div>
                                 <div class="tab-pane fade" id="nav-tasks" role="tabpanel" aria-labelledby="nav-tasks-tab">
 
-                                    <div style="padding-top: 1em;">
+<!--                                    <div style="padding-top: 1em;">
                                         <div class="progress">
                                             <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
@@ -551,7 +551,25 @@
                                     </div>
                                     <div class="progress">
                                         <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>-->
+
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Analysis</h5>
+
+                                                    <textarea class="form-control"></textarea>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
                                     </div>
+
+
 
 
                                 </div>
@@ -613,15 +631,15 @@
 
                                         <div class="row">
 
-<!--                                            <div class="col">
-                                                <div class="card bg-light mb-3" style="height: 10em;">
-                                                    <div class="card-body">
-                                                        <h4 class="card-title"><span class="fa fa-braille"></span> Related Incidents</h4>
-
-test
-                                                    </div>
-                                                </div>
-                                            </div>-->
+                                            <!--                                            <div class="col">
+                                                                                            <div class="card bg-light mb-3" style="height: 10em;">
+                                                                                                <div class="card-body">
+                                                                                                    <h4 class="card-title"><span class="fa fa-braille"></span> Related Incidents</h4>
+                                            
+                                            test
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>-->
                                         </div>
                                     </div>
                                 </div>
@@ -638,8 +656,8 @@ test
 
                                                         <table class="table table-hover table-sm table-condensed">
                                                             <tbody>
-                                                                <tr>
-                                                                    <td style="width:10%;"><span class="font-weight-bold">Monitoring</span></td>
+                                                                <tr data-toggle="tooltip" data-placement="top" title="Time from the detection of the alert to reporting of the alert.">
+                                                                    <td style="width:10%;" ><span class="font-weight-bold">Monitoring</span></td>
 
                                                                     <td style="width:100%;">
 
@@ -689,7 +707,7 @@ test
 
                                                                     </td>
                                                                 </tr>
-                                                                <tr>
+                                                                <tr data-toggle="tooltip" data-placement="top" title="Time from reporting of the alert to triaging of the alert.">
                                                                     <td style="width:15%;"><span class="font-weight-bold">Triage</span></td>
                                                                     <td>
                                                                         <div class="col-lg-9">
@@ -736,7 +754,7 @@ test
                                                                         </div>
                                                                     </td>
                                                                 </tr>
-                                                                <tr>
+                                                                <tr data-toggle="tooltip" data-placement="top" title="Time from triaging of the alert to resolution of the alert.">
                                                                     <td style="width:15%;"><span class="font-weight-bold">Resolution</span></td>
                                                                     <td>
                                                                         <div class="col-lg-9">
@@ -804,7 +822,7 @@ test
 
                                                                     </td>
                                                                 </tr>
-                                                                <tr>
+                                                                <tr data-toggle="tooltip" data-placement="top" title="Time from resolution of the alert to closure of the alert.">
                                                                     <td style="width:15%;"><span class="font-weight-bold">Response</span></td>
                                                                     <td>
                                                                         <div class="col-lg-9">
