@@ -174,11 +174,11 @@
                                                             <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
                     
                                                                 <div class="d-flex w-100 justify-content-between">
-                                                                    <span class="font-weight-bold"><?php // echo nice_date($row->datetime, 'm/d/y , H:i:s');  ?></span>
-                                                                    <small class="text-muted"><span class="fa fa-clock-o"></span> <?php // echo time_elapsed_string($row->datetime);  ?></small>
+                                                                    <span class="font-weight-bold"><?php // echo nice_date($row->datetime, 'm/d/y , H:i:s');             ?></span>
+                                                                    <small class="text-muted"><span class="fa fa-clock-o"></span> <?php // echo time_elapsed_string($row->datetime);             ?></small>
                                                                 </div>
                     
-                                                                <small><?php // echo $row->content;  ?></small>
+                                                                <small><?php // echo $row->content;             ?></small>
                     
                                                             </a>
                     <?php // endforeach; ?>
@@ -337,7 +337,7 @@
                             <div class="tab-content" id="nav-tabContent">
                                 <div class="tab-pane fade show active" id="nav-artifacts" role="tabpanel" aria-labelledby="nav-artifacts-tab">
                                     <div style="padding-top: 1em;">
-                                        <div class="card bg-light mb-3">
+                                        <div class="card mb-3">
                                             <div class="card-body">
                                                 <?php if ($incident_artifacts) { ?>
                                                     <input type="hidden" name="incident_inc" value="1">
@@ -536,30 +536,95 @@
                                 </div>
                                 <div class="tab-pane fade" id="nav-tasks" role="tabpanel" aria-labelledby="nav-tasks-tab">
 
-<!--                                    <div style="padding-top: 1em;">
-                                        <div class="progress">
-                                            <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="row" style="padding-top: 1em;">
+                                        <div class="col-lg-12">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-success" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">Incident Creation</div>
+                                                        <?php if ($incident_artifacts): ?>
+                                                            <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">Added Artifacts</div>
+                                                        <?php endif; ?>
+                                                        <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--                                    <div style="padding-top: 1em;">
+                                                                            <div class="progress">
+                                                                                <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                            </div>
+                                    
+                                                                        </div>
+                                    
+                                                                        <div class="progress">
+                                                                            <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                        </div>
+                                                                        <div class="progress">
+                                                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                        </div>
+                                                                        <div class="progress">
+                                                                            <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                        </div>-->
+
+                                    <div class="row" style="padding-top: 1em;">
+                                        <div class="col-lg-12">
+                                            <div class="card">
+                                                <div class="card-body">
+
+                                                    <h5 class="card-title">Analysis
+                                                        <span class="float-right">
+                                                            <select class="form-control">
+                                                                <option>Analysis Template</option>
+                                                            </select> </span>
+                                                    </h5>
+
+
+                                                    <div style="padding-top: 1em;">
+                                                        <textarea class="form-control" rows="5"></textarea>
+
+                                                    </div>
+
+                                                    <div class="form-group float-right" style="padding-top: 1em;">
+                                                        <span class="btn btn-circle btn-primary btn-file"><span class="fa fa-paperclip"> </span> <input type="file" class="form-control-file"> Attach File</span>
+
+                                                        <button class="btn btn-primary"><span class="fa fa-send"> </span> Submit</button>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
                                         </div>
 
                                     </div>
 
-                                    <div class="progress">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>-->
-
-                                    <div class="row">
+                                    <div class="row" style="padding-top: 1em;">
                                         <div class="col-lg-12">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h5 class="card-title">Analysis</h5>
 
-                                                    <textarea class="form-control"></textarea>
+                                                    <h5 class="card-title">Containment Strategy (Resolution)
+                                                        <span class="float-right">
+                                                            <select class="form-control">
+                                                                <option>Resolution Template</option>
+                                                            </select> </span>
+                                                    </h5>
+
+
+                                                    <div style="padding-top: 1em;">
+                                                        <textarea class="form-control" rows="5"></textarea>
+
+                                                    </div>
+
+                                                    <div class="form-group float-right" style="padding-top: 1em;">
+                                                        <span class="btn btn-circle btn-primary btn-file"><span class="fa fa-paperclip"> </span> <input type="file" class="form-control-file"> Attach File</span>
+
+                                                        <button class="btn btn-primary"><span class="fa fa-send"> </span> Submit</button>
+                                                    </div>
 
                                                 </div>
 
@@ -578,7 +643,7 @@
                                         <div class="row">
 
                                             <div class="col">
-                                                <div class="card bg-light mb-3" style="height: 15em;">
+                                                <div class="card mb-3" style="height: 15em;">
                                                     <div class="card-body">
                                                         <h4 class="card-title"><span class="fa fa-bookmark"></span> General Details</h4>
 
@@ -613,7 +678,7 @@
                                             </div>
 
                                             <div class="col">
-                                                <div class="card bg-light mb-3" style="height: 10em;">
+                                                <div class="card mb-3" style="height: 10em;">
                                                     <div class="card-body">
                                                         <h4 class="card-title"><span class="fa fa-braille"></span> Related Incidents</h4>
 
@@ -650,7 +715,7 @@
                                         <div class="row">
 
                                             <div class="col-lg-8">
-                                                <div class="card bg-light mb-3" >
+                                                <div class="card mb-3" >
                                                     <div class="card-body">
                                                         <h4 class="card-title"><span class="fa fa-clock-o"></span> Incident Duration</h4>
 
@@ -884,7 +949,7 @@
 
                                     <div class="col-lg-12">
                                         <div class="row">
-                                            <div class="card bg-light mb-3">
+                                            <div class="card mb-3">
 
                                                 <div class="card-body">
                                                     <h4><span class="fa fa-comment"></span> Incident Log</h4>
